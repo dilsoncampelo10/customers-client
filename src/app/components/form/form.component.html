@@ -11,49 +11,49 @@
                     <input type="text" name="name" class="form-control" id="name" [(ngModel)]="customer.name">
                 </div>
                 <div class="form-group row">
-                    <div class="col-6">
+                    <div class="col-12 col-md-6">
                         <label for="cpf">CPF *</label>
                         <input type="text" name="cpf" class="form-control" id="cpf" [(ngModel)]="customer.cpf">
                     </div>
-                    <div class="col-6">
+                    <div class="col-12 col-md-6">
                         <label for="rg">RG *</label>
                         <input type="text" name="rg" class="form-control" id="rg" [(ngModel)]="customer.rg">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-6">
+                    <div class="col-12 col-md-6">
                         <label for="birthdate">Data de Nascimento *</label>
                         <input type="date" name="birthdate" class="form-control" id="birthdate" [(ngModel)]="customer.birthdate">
                     </div>
-                    <div class="col-6">
+                    <div class="col-12 col-md-6">
                         <label for="phone">Telefone *</label>
                         <input type="text" name="phone" class="form-control" id="phone" [(ngModel)]="customer.phone">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-10">
+                    <div class="col-12 col-md-10">
                         <label for="street">Rua *</label>
                         <input type="text" name="street" class="form-control" id="street" [(ngModel)]="customer.street">
                     </div>
-                    <div class="col-2">
+                    <div class="col-12 col-md-2">
                         <label for="number_address">Número *</label>
                         <input type="text" name="number_address" class="form-control" id="number_address" [(ngModel)]="customer.number_address">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-3">
+                    <div class="col-12 col-md-3">
                         <label for="zip_code">Cep *</label>
                         <input type="text" name="zip_code" class="form-control" id="zip_code" [(ngModel)]="customer.zip_code">
                     </div>
-                    <div class="col-3">
+                    <div class="col-12 col-md-3">
                         <label for="neighborhood">Bairro *</label>
                         <input type="text" name="neighborhood" class="form-control" id="neighborhood" [(ngModel)]="customer.neighborhood">
                     </div>
-                    <div class="col-3">
+                    <div class="col-12 col-md-3">
                         <label for="neighborhood">Cidade *</label>
                         <input type="text" name="city" class="form-control" id="city" [(ngModel)]="customer.city">
                     </div>
-                    <div class="col-3">
+                    <div class="col-12 col-md-3">
                         <label for="complement">Complemento *</label>
                         <input type="text" name="complement" class="form-control" id="complement" [(ngModel)]="customer.complement">
                     </div>
@@ -64,8 +64,11 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button class="btn btn-primary" type="button" (click)="create()">
+                <button class="btn btn-primary" type="button" (click)="create()" *ngIf="btnSave">
                     Cadastrar
+                </button>
+                <button class="btn btn-dark" type="button" (click)="create()" *ngIf="!btnSave">
+                    Editar
                 </button>
                 <button class="btn btn-secondary ms-2" type="reset">
                     Cancelar

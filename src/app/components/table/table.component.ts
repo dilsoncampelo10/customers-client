@@ -12,6 +12,7 @@ export class TableComponent {
   constructor(private customerService:CustomerService,private customerSharedService: CustomersharedService){
     this.customerSharedService.customerAdded$.subscribe(customer => {
       this.customers.push(customer);
+      
     })
   }
 
@@ -20,6 +21,19 @@ export class TableComponent {
   findAll():void{
     this.customerService.findAll()
     .subscribe(response => this.customers = response);
+  }
+
+  delete(id:number):void{
+    this.customerService.delete(id)
+    .subscribe(response => {
+      let index = this.customers.findIndex(obj => {
+        return obj.id == id;
+      })
+
+      this.customers.splice(index,1);
+
+      alert("Cliente removido")
+    })
   }
 
   ngOnInit(){

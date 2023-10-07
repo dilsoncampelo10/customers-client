@@ -13,7 +13,8 @@ export class FormComponent {
 
   constructor(private customerService:CustomerService, private customerSharedService: CustomersharedService){}
 
-
+  btnSave: boolean = true;
+  
   customer = new Customer();
   
   customers: Customer[] = [];

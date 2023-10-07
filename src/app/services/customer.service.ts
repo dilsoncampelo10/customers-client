@@ -19,4 +19,8 @@ export class CustomerService {
   create(obj:Customer):Observable<Customer>{
     return this.request.post<Customer>(this.url,obj);
   }
+
+  delete(id:number):Observable<void>{
+    return this.request.delete<void>(this.url+"/"+ id);
+  }
 }
