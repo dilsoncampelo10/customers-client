@@ -11,13 +11,19 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngFor="let customer of customers">
                 <td>1</td>
-                <td>Dilson</td>
-                <td>dilsocn.com</td>
-                <td>(00)232323</td>
-                <td>122.212.221-12</td>
-                <td></td>
+                <td>{{customer.name}}</td>
+                <td>{{customer.email}}</td>
+                <td>{{customer.phone}}</td>
+                <td>{{customer.cpf}}</td>
+                <td>
+                    <button type="button" class="btn btn-danger">
+                        <i class="fa-solid fa-trash"></i> Deletar
+                    </button>
+                    <button type="button" class="btn btn-warning ms-2"><i class="fa-solid fa-magnifying-glass"></i> Selecionar</button>
+                    <button type="button" class="btn btn-info ms-2"><i class="fa-solid fa-eye"></i> Ver Mais</button>
+                </td>
             </tr>
         </tbody>
     </table>

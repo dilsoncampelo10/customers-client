@@ -13,9 +13,5 @@ export class FormComponent {
 
   customers: Customer[] = [];
   
-  findAll():void{
-    this.customerService.findAll()
-    .subscribe(response => this.customers = response);
-  }
 
 }
