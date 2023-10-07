@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Customer } from 'src/app/models/Customer';
 import { CustomerService } from 'src/app/services/customer.service';
+import { CustomersharedService } from 'src/app/services/customershared.service';
 
 @Component({
   selector: 'app-table',
@@ -8,7 +9,11 @@ import { CustomerService } from 'src/app/services/customer.service';
   styleUrls: ['./table.component.sass']
 })
 export class TableComponent {
-  constructor(private customerService:CustomerService){}
+  constructor(private customerService:CustomerService,private customerSharedService: CustomersharedService){
+    this.customerSharedService.customerAdded$.subscribe(customer => {
+      this.customers.push(customer);
+    })
+  }
 
   customers: Customer[] = [];
   

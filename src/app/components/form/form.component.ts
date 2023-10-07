@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Customer } from 'src/app/models/Customer';
 import { CustomerService } from 'src/app/services/customer.service';
+import { TableComponent } from '../table/table.component';
+import { CustomersharedService } from 'src/app/services/customershared.service';
 
 @Component({
   selector: 'app-form',
@@ -9,7 +11,7 @@ import { CustomerService } from 'src/app/services/customer.service';
 })
 export class FormComponent {
 
-  constructor(private customerService:CustomerService){}
+  constructor(private customerService:CustomerService, private customerSharedService: CustomersharedService){}
 
 
   customer = new Customer();
@@ -18,7 +20,10 @@ export class FormComponent {
   
   create(): void{
     this.customerService.create(this.customer)
-    .subscribe(response => {this.customers.push(response)});
+    .subscribe(response => {
+      this.customerSharedService.addCustomer(this.customer)
+    });
+    alert("Cliente adicionado com sucesso");
    
   }
 
