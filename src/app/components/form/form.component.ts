@@ -11,7 +11,15 @@ export class FormComponent {
 
   constructor(private customerService:CustomerService){}
 
+
+  customer = new Customer();
+  
   customers: Customer[] = [];
   
+  create(): void{
+    this.customerService.create(this.customer)
+    .subscribe(response => {this.customers.push(response)});
+   
+  }
 
 }

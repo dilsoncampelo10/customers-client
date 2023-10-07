@@ -15,4 +15,8 @@ export class CustomerService {
   findAll():Observable<Customer[]>{
     return this.request.get<Customer[]>(this.url);
   }
+
+  create(obj:Customer):Observable<Customer>{
+    return this.request.post<Customer>(this.url,obj);
+  }
 }
